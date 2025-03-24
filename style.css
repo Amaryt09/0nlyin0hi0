@@ -106,7 +106,9 @@ header {
     border-bottom: 4px solid #FF9800;
 }
 
-/* 🌴 Container */
+/* 🌴 SUMMER-THEMED WEBSITE 🌞 */
+
+/* 🌴 Container (Auto-aligning grid) */
 .container {
     display: flex;
     justify-content: center;
@@ -114,17 +116,20 @@ header {
     gap: 15px;
     margin: auto;
     padding: 20px;
-    flex-grow: 1; /* Pushes footer down */
+    flex-grow: 1;
     max-width: 900px;
+    align-items: stretch; /* Makes all cards the same height */
 }
 
-/* 📦 Project Cards (Smaller, Cube-Shaped) */
+/* 📦 Project Cards (Auto-sizing for alignment) */
 .project-card {
     background: rgba(34, 34, 59, 0.85);
     border-radius: 15px;
     padding: 20px;
-    width: 180px; /* Cube Shape */
-    height: 180px;
+    width: 200px; /* Adjusted for better layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Keeps buttons at the bottom */
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s, box-shadow 0.3s;
@@ -132,30 +137,19 @@ header {
     z-index: 1;
 }
 
-.project-card:hover {
-    transform: scale(1.07);
-    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.3);
-}
-
-/* 🖼️ Project Images */
-.project-card img {
-    width: 70px;
-    height: 70px;
-    margin-bottom: 8px;
-}
-
-/* 🏝️ Project Titles */
-.project-card h2 {
-    font-size: 18px;
-    color: #FFD700;
-    margin-top: 8px;
+/* Ensures buttons stay aligned at the bottom */
+.project-card .buttons {
+    margin-top: auto; /* Push buttons to the bottom */
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Adds spacing between buttons */
+    align-items: center;
 }
 
 /* 🌞 Buttons */
 .button, .download-button {
     display: inline-block;
     padding: 10px 18px;
-    margin-top: 10px;
     background: linear-gradient(45deg, #ffcc33, #ff5733);
     color: white;
     text-decoration: none;
@@ -225,7 +219,6 @@ footer {
     }
 
     .project-card {
-        width: 160px;
-        height: 160px;
+        width: 180px;
     }
 }

@@ -12,12 +12,23 @@ body {
     display: flex;
     flex-direction: column;
     overflow-x: hidden; /* Prevent horizontal scroll due to cloud animations */
+    position: relative;
 }
 
-/* ☁️ Cloud Animation Fix */
-@keyframes floatClouds {
-    0% { transform: translateX(-200px); opacity: 0.8; }
+/* ☁️ Keyframes for Cloud Movement */
+@keyframes floatCloudsLeft {
+    0% { transform: translateX(-200px); opacity: 0.6; }
     100% { transform: translateX(120vw); opacity: 1; }
+}
+
+@keyframes floatCloudsRight {
+    0% { transform: translateX(120vw); opacity: 0.6; }
+    100% { transform: translateX(-200px); opacity: 1; }
+}
+
+@keyframes floatCloudsDown {
+    0% { transform: translateY(-100px); opacity: 0.7; }
+    100% { transform: translateY(100vh); opacity: 1; }
 }
 
 /* ☁️ Cloud Styling */
@@ -25,63 +36,63 @@ body {
     position: absolute;
     background: white;
     border-radius: 50%;
-    opacity: 0.6;
-    filter: blur(3px);
-    animation: floatClouds linear infinite;
+    filter: blur(8px);
+    opacity: 0.8;
+    z-index: -2;  /* Makes sure clouds stay behind everything */
 }
 
-/* 🌥️ Different Cloud Sizes & Positions */
+/* 🌥️ Cloud Movement Directions */
+.cloud:nth-child(odd) {
+    animation: floatCloudsLeft linear infinite;
+}
+
+.cloud:nth-child(even) {
+    animation: floatCloudsRight linear infinite;
+}
+
+.cloud:nth-child(3n) {
+    animation: floatCloudsDown linear infinite;
+}
+
+/* 🌤️ Cloud Sizes & Placement */
 .cloud:nth-child(1) {
     top: 5%;
     left: -150px;
-    width: 180px;
-    height: 90px;
-    animation-duration: 20s;
+    width: 120px;
+    height: 60px;
+    animation-duration: 18s;
 }
 
 .cloud:nth-child(2) {
     top: 15%;
-    left: -100px;
-    width: 140px;
-    height: 70px;
-    animation-duration: 25s;
-    animation-delay: 5s;
+    left: -250px;
+    width: 180px;
+    height: 90px;
+    animation-duration: 22s;
 }
 
 .cloud:nth-child(3) {
-    top: 30%;
-    left: -180px;
+    top: 35%;
+    left: -200px;
     width: 220px;
     height: 110px;
-    animation-duration: 22s;
-    animation-delay: 8s;
+    animation-duration: 26s;
 }
 
 .cloud:nth-child(4) {
-    top: 50%;
-    left: -250px;
-    width: 200px;
-    height: 100px;
+    top: 55%;
+    left: -280px;
+    width: 140px;
+    height: 70px;
     animation-duration: 30s;
-    animation-delay: 10s;
 }
 
 .cloud:nth-child(5) {
-    top: 70%;
-    left: -300px;
-    width: 170px;
-    height: 85px;
-    animation-duration: 28s;
-    animation-delay: 12s;
-}
-
-.cloud:nth-child(6) {
-    top: 85%;
-    left: -120px;
-    width: 150px;
-    height: 75px;
-    animation-duration: 26s;
-    animation-delay: 15s;
+    top: 75%;
+    left: -320px;
+    width: 200px;
+    height: 100px;
+    animation-duration: 35s;
 }
 
 /* 🌊 Header Styling */
@@ -107,26 +118,29 @@ header {
     max-width: 900px;
 }
 
-/* 🎨 Project Cards (Smaller Cubes) */
+/* 📦 Project Cards (Smaller, Cube-Shaped) */
 .project-card {
     background: rgba(34, 34, 59, 0.85);
-    border-radius: 10px;
-    padding: 15px;
-    width: 220px; /* Smaller size */
+    border-radius: 15px;
+    padding: 20px;
+    width: 180px; /* Cube Shape */
+    height: 180px;
     text-align: center;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    z-index: 1;
 }
 
 .project-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 12px rgba(255, 255, 255, 0.3);
+    transform: scale(1.07);
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.3);
 }
 
 /* 🖼️ Project Images */
 .project-card img {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     margin-bottom: 8px;
 }
 
@@ -165,6 +179,7 @@ footer {
     border-top: 4px solid #FF9800;
     text-align: center;
 }
+
 /* 🌟 Styling for the Embeds */
 .embed {
     padding: 15px;
@@ -200,4 +215,17 @@ footer {
 }
 .money-bags h3 {
     color: #32CD32;
+}
+
+/* 📱 Mobile-Friendly Adjustments */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project-card {
+        width: 160px;
+        height: 160px;
+    }
 }

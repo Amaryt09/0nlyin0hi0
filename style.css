@@ -11,24 +11,17 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    overflow-x: hidden; /* Prevent horizontal scroll due to cloud animations */
-    position: relative;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
-/* ☁️ Keyframes for Cloud Movement */
+/* ☁️ Cloud Animations */
 @keyframes floatCloudsLeft {
     0% { transform: translateX(-200px); opacity: 0.6; }
     100% { transform: translateX(120vw); opacity: 1; }
 }
-
 @keyframes floatCloudsRight {
     0% { transform: translateX(120vw); opacity: 0.6; }
     100% { transform: translateX(-200px); opacity: 1; }
-}
-
-@keyframes floatCloudsDown {
-    0% { transform: translateY(-100px); opacity: 0.7; }
-    100% { transform: translateY(100vh); opacity: 1; }
 }
 
 /* ☁️ Cloud Styling */
@@ -36,68 +29,58 @@ body {
     position: absolute;
     background: white;
     border-radius: 50%;
-    filter: blur(8px);
-    opacity: 0.8;
-    z-index: -2;  /* Makes sure clouds stay behind everything */
+    filter: blur(10px);
+    opacity: 0.7;
+    z-index: -1;
 }
 
-/* 🌥️ Cloud Movement Directions */
 .cloud:nth-child(odd) {
     animation: floatCloudsLeft linear infinite;
 }
-
 .cloud:nth-child(even) {
     animation: floatCloudsRight linear infinite;
 }
 
-.cloud:nth-child(3n) {
-    animation: floatCloudsDown linear infinite;
-}
-
-/* 🌤️ Cloud Sizes & Placement */
+/* 🌥️ Cloud Variations */
 .cloud:nth-child(1) {
     top: 5%;
     left: -150px;
-    width: 120px;
-    height: 60px;
+    width: 140px;
+    height: 80px;
     animation-duration: 18s;
 }
-
 .cloud:nth-child(2) {
     top: 15%;
-    left: -250px;
-    width: 180px;
-    height: 90px;
-    animation-duration: 22s;
-}
-
-.cloud:nth-child(3) {
-    top: 35%;
     left: -200px;
+    width: 180px;
+    height: 100px;
+    animation-duration: 24s;
+}
+.cloud:nth-child(3) {
+    top: 40%;
+    left: -180px;
     width: 220px;
     height: 110px;
+    animation-duration: 20s;
+}
+.cloud:nth-child(4) {
+    top: 60%;
+    left: -250px;
+    width: 160px;
+    height: 90px;
     animation-duration: 26s;
 }
-
-.cloud:nth-child(4) {
-    top: 55%;
-    left: -280px;
-    width: 140px;
-    height: 70px;
+.cloud:nth-child(5) {
+    top: 80%;
+    left: -300px;
+    width: 200px;
+    height: 100px;
     animation-duration: 30s;
 }
 
-.cloud:nth-child(5) {
-    top: 75%;
-    left: -320px;
-    width: 200px;
-    height: 100px;
-    animation-duration: 35s;
-}
-
-/* 🌊 Header Styling */
+/* 🌊 Header */
 header {
-    background: #FFA726; /* Warm orange */
+    background: #FFA726;
     padding: 15px 0;
     font-size: 24px;
     font-weight: bold;
@@ -106,30 +89,28 @@ header {
     border-bottom: 4px solid #FF9800;
 }
 
-/* 🌴 SUMMER-THEMED WEBSITE 🌞 */
-
-/* 🌴 Container (Auto-aligning grid) */
+/* 🌴 Container */
 .container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 20px;
     margin: auto;
     padding: 20px;
     flex-grow: 1;
-    max-width: 900px;
-    align-items: stretch; /* Makes all cards the same height */
+    max-width: 1000px;
+    align-items: stretch;
 }
 
-/* 📦 Project Cards (Auto-sizing for alignment) */
+/* 🎨 Project Cards */
 .project-card {
     background: rgba(34, 34, 59, 0.85);
     border-radius: 15px;
     padding: 20px;
-    width: 200px; /* Adjusted for better layout */
+    width: 230px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Keeps buttons at the bottom */
+    justify-content: space-between;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s, box-shadow 0.3s;
@@ -137,18 +118,39 @@ header {
     z-index: 1;
 }
 
-/* Ensures buttons stay aligned at the bottom */
+.project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.3);
+}
+
+/* 🖼️ Rounded Project Images */
+.project-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+    object-fit: cover;
+    margin-bottom: 8px;
+}
+
+/* 🏝️ Titles */
+.project-card h2 {
+    font-size: 18px;
+    color: #FFD700;
+    margin-top: 8px;
+}
+
+/* 🌞 Buttons Wrapper */
 .project-card .buttons {
-    margin-top: auto; /* Push buttons to the bottom */
+    margin-top: auto;
     display: flex;
     flex-direction: column;
-    gap: 8px; /* Adds spacing between buttons */
+    gap: 8px;
     align-items: center;
 }
 
-/* 🌞 Buttons */
+/* 🌈 Explore / Download Buttons */
 .button, .download-button {
-    display: inline-block;
+    display: block;
     padding: 10px 18px;
     background: linear-gradient(45deg, #ffcc33, #ff5733);
     color: white;
@@ -157,11 +159,25 @@ header {
     border-radius: 6px;
     transition: 0.3s;
     box-shadow: 0px 3px 8px rgba(255, 100, 0, 0.4);
+    width: 80%;
+    text-align: center;
 }
 
 .button:hover, .download-button:hover {
     background: linear-gradient(45deg, #ff5733, #ffcc33);
     transform: translateY(-2px);
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project-card {
+        width: 90%;
+    }
 }
 
 /* 🌊 Footer */
@@ -174,7 +190,7 @@ footer {
     text-align: center;
 }
 
-/* 🌟 Styling for the Embeds */
+/* 🌟 Embeds */
 .embed {
     padding: 15px;
     margin: 20px auto;
@@ -209,16 +225,4 @@ footer {
 }
 .money-bags h3 {
     color: #32CD32;
-}
-
-/* 📱 Mobile-Friendly Adjustments */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .project-card {
-        width: 180px;
-    }
 }

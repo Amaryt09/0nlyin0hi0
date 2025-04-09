@@ -2,7 +2,7 @@
 
 /* General Page Styling */
 body {
-    background: linear-gradient(to bottom, #62c9ff, #198fd6); /* Vibrant cyan-blue sky */
+    background: linear-gradient(to bottom, #62c9ff, #198fd6);
     color: white;
     font-family: 'Poppins', sans-serif;
     text-align: center;
@@ -11,7 +11,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden;
 }
 
 /* ☁️ Cloud Animations */
@@ -24,7 +24,7 @@ body {
     100% { transform: translateX(-200px); opacity: 1; }
 }
 
-/* ☁️ Cloud Styling */
+/* ☁️ Clouds */
 .cloud {
     position: absolute;
     background: white;
@@ -33,50 +33,17 @@ body {
     opacity: 0.7;
     z-index: -1;
 }
-
 .cloud:nth-child(odd) {
     animation: floatCloudsLeft linear infinite;
 }
 .cloud:nth-child(even) {
     animation: floatCloudsRight linear infinite;
 }
-
-/* 🌥️ Cloud Variations */
-.cloud:nth-child(1) {
-    top: 5%;
-    left: -150px;
-    width: 140px;
-    height: 80px;
-    animation-duration: 18s;
-}
-.cloud:nth-child(2) {
-    top: 15%;
-    left: -200px;
-    width: 180px;
-    height: 100px;
-    animation-duration: 24s;
-}
-.cloud:nth-child(3) {
-    top: 40%;
-    left: -180px;
-    width: 220px;
-    height: 110px;
-    animation-duration: 20s;
-}
-.cloud:nth-child(4) {
-    top: 60%;
-    left: -250px;
-    width: 160px;
-    height: 90px;
-    animation-duration: 26s;
-}
-.cloud:nth-child(5) {
-    top: 80%;
-    left: -300px;
-    width: 200px;
-    height: 100px;
-    animation-duration: 30s;
-}
+.cloud:nth-child(1) { top: 5%; left: -150px; width: 140px; height: 80px; animation-duration: 18s; }
+.cloud:nth-child(2) { top: 15%; left: -200px; width: 180px; height: 100px; animation-duration: 24s; }
+.cloud:nth-child(3) { top: 40%; left: -180px; width: 220px; height: 110px; animation-duration: 20s; }
+.cloud:nth-child(4) { top: 60%; left: -250px; width: 160px; height: 90px; animation-duration: 26s; }
+.cloud:nth-child(5) { top: 80%; left: -300px; width: 200px; height: 100px; animation-duration: 30s; }
 
 /* 🌊 Header */
 header {
@@ -99,35 +66,33 @@ header {
     padding: 20px;
     flex-grow: 1;
     max-width: 1000px;
-    align-items: stretch;
 }
 
-/* 🎨 Project Cards */
+/* 🎨 Project Cards (Cube-Like) */
 .project-card {
     background: rgba(34, 34, 59, 0.85);
-    border-radius: 15px;
-    padding: 20px;
-    width: 230px;
+    border-radius: 12px;
+    padding: 16px;
+    width: 200px;
+    height: 270px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s, box-shadow 0.3s;
-    position: relative;
-    z-index: 1;
 }
 
 .project-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 5px 12px rgba(255, 255, 255, 0.3);
 }
 
-/* 🖼️ Rounded Project Images */
+/* 🖼️ Rounded Image Fix */
 .project-card img {
-    width: 100px;
-    height: 100px;
-    border-radius: 15px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
     object-fit: cover;
     margin-bottom: 8px;
 }
@@ -139,33 +104,42 @@ header {
     margin-top: 8px;
 }
 
-/* 🌞 Buttons Wrapper */
+/* 📦 Text */
+.project-card p {
+    font-size: 14px;
+    color: #ddd;
+    margin: 10px 0;
+    flex-grow: 1;
+}
+
+/* 🌞 Buttons Group */
 .project-card .buttons {
-    margin-top: auto;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
+    width: 100%;
+    margin-top: auto;
     align-items: center;
 }
 
-/* 🌈 Explore / Download Buttons */
+/* ☀️ Styled Buttons */
 .button, .download-button {
-    display: block;
-    padding: 10px 18px;
+    display: inline-block;
+    padding: 8px 16px;
     background: linear-gradient(45deg, #ffcc33, #ff5733);
     color: white;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 14px;
     border-radius: 6px;
     transition: 0.3s;
-    box-shadow: 0px 3px 8px rgba(255, 100, 0, 0.4);
-    width: 80%;
+    box-shadow: 0px 2px 6px rgba(255, 100, 0, 0.4);
+    width: 85%;
     text-align: center;
 }
 
 .button:hover, .download-button:hover {
     background: linear-gradient(45deg, #ff5733, #ffcc33);
-    transform: translateY(-2px);
+    transform: translateY(-1px);
 }
 
 /* 📱 Responsive Design */
@@ -174,9 +148,9 @@ header {
         flex-direction: column;
         align-items: center;
     }
-
     .project-card {
         width: 90%;
+        height: auto;
     }
 }
 

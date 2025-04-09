@@ -69,13 +69,14 @@ header {
   overflow: hidden;
   text-align: left;
   transition: transform 0.3s ease;
+  position: relative;
 }
 
 .project-card:hover {
   transform: scale(1.01);
 }
 
-/* Project Banner Image */
+/* Banner */
 .project-banner {
   width: 100%;
   height: 160px;
@@ -84,12 +85,26 @@ header {
   border-top-right-radius: 16px;
 }
 
-/* Project Details Section */
-.project-details {
-  padding: 16px;
+/* Project Icon */
+.project-icon {
+  width: 64px;
+  height: 64px;
+  position: absolute;
+  left: 16px;
+  top: 120px;
+  border-radius: 12px;
+  border: 3px solid white;
+  background-color: #eee;
+  object-fit: cover;
+  z-index: 2;
 }
 
-/* Project Title and Meta */
+/* Content Section */
+.project-details {
+  padding: 40px 16px 16px 16px;
+}
+
+/* Title & Description */
 .project-title {
   font-size: 22px;
   color: #FFD700;
@@ -114,6 +129,7 @@ header {
   margin-bottom: 12px;
 }
 
+/* Stats / Meta */
 .project-meta {
   font-size: 13px;
   color: #cccccc;

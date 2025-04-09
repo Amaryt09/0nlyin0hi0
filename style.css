@@ -123,13 +123,12 @@ header {
     box-shadow: 0 6px 15px rgba(255, 255, 255, 0.3);
 }
 
-/* 🖼️ Rounded Project Images */
 .project-card img {
-    width: 100px;
-    height: 100px;
-    border-radius: 15px;
-    object-fit: cover;
+    width: 80px;
+    height: 80px;
     margin-bottom: 8px;
+    border-radius: 12px; /* ← Changed from 50% to 12px */
+    object-fit: cover;
 }
 
 /* 🏝️ Titles */
@@ -225,4 +224,11 @@ footer {
 }
 .money-bags h3 {
     color: #32CD32;
+}
+.project-card .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px; /* ← Space between buttons */
+    margin-top: 10px;
 }

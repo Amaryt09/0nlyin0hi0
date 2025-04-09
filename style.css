@@ -123,12 +123,13 @@ header {
     box-shadow: 0 6px 15px rgba(255, 255, 255, 0.3);
 }
 
+/* 🖼️ Rounded Project Images */
 .project-card img {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 8px;
-    border-radius: 12px; /* ← Changed from 50% to 12px */
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
     object-fit: cover;
+    margin-bottom: 8px;
 }
 
 /* 🏝️ Titles */
